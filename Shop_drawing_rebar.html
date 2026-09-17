@@ -886,6 +886,7 @@
 
       <!-- Expand / Collapse Tools -->
       <button class="tool-btn" id="btn-expand-all" title="Mở rộng toàn bộ cây sơ đồ">Expand All</button>
+      <button class="tool-btn" id="btn-collapse-lvl3" title="Mở rộng đến chi tiết cốt thép (Level 3)">Level 3</button>
       <button class="tool-btn" id="btn-collapse-lvl2" title="Thu gọn về Chi tiết (Level 2)">Level 2</button>
       <button class="tool-btn" id="btn-collapse-lvl1" title="Thu gọn về 14 Cấu kiện chính (Level 1)">Level 1</button>
       <button class="tool-btn" id="btn-reset-sizes" title="Khôi phục toàn bộ node về tự động vừa 1 hàng chữ">Auto 1 Hàng</button>
@@ -1145,7 +1146,7 @@
       collectDrawings(MINDMAP_DATA);
       if (drawingCounter) drawingCounter.textContent = `1/${state.drawingNodes.length}`;
 
-      collapseToLevel(2, false);
+      collapseToLevel(3, false);
       renderMindmap();
       setTimeout(zoomExtents, 100);
 
@@ -1773,6 +1774,7 @@
       document.getElementById('btn-next-drawing').onclick = jumpToNextDrawing;
 
       document.getElementById('btn-expand-all').onclick = expandAll;
+      document.getElementById('btn-collapse-lvl3').onclick = () => collapseToLevel(3);
       document.getElementById('btn-collapse-lvl2').onclick = () => collapseToLevel(2);
       document.getElementById('btn-collapse-lvl1').onclick = () => collapseToLevel(1);
       document.getElementById('btn-reset-sizes').onclick = () => {
